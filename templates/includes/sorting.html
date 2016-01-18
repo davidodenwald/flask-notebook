@@ -1,0 +1,11 @@
+<p>
+    {% if sort_order %}
+    <a href="{{ url_for('sorting') }}" class="btn btn-default" role="button">
+        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+    </a>
+    {% else %}
+    <a href="{{ url_for('sorting') }}" class="btn btn-default" role="button">
+        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+    </a>
+    {% endif %}
+</p>

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if session.logged_in %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            {% include 'includes/add.html' %}
+        </div>
+        <div class="col-xs-6 text-right">
+            {% include 'includes/sorting.html' %}
+        </div>
+    </div>
+    <div class="row">
+        {% for entry in entries %}
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                {% if entry.title %}
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ entry.title }}</h3>
+                </div>
+                {% endif %}
+                {% if entry.text %}
+                <div class="panel-body">
+                    {{ entry.formated|safe }}
+                </div>
+
+                {% for link in entry.youtube %}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{ link }}"></iframe>
+                </div>
+                {% endfor %}
+
+                {% endif %}
+                <div class="panel-footer">
+                    <div class="row">
+                        {% include 'includes/edit.html' %}
+                        {% include 'includes/delete.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

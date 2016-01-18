@@ -1,0 +1,35 @@
+<p>
+<button type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#addModal" data-whatever="@mdo">
+    New Note
+</button>
+</p>
+<div class="modal fade bs-example-modal-sm" id="addModal" tabindex="-1" role="dialog"
+     aria-labelledby="addModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="{{ url_for('add_note') }}" method=post class=add-entry, id="editForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Text</label>
+                        <textarea class="form-control" rows="15" id="text" name="text"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">Cancel
+                            </button>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <button type="submit" value="Share" class="btn btn-success" id="save">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
